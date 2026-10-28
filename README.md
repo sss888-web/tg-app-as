@@ -14,6 +14,19 @@ npm run dev
 
 ---
 
+## Схема: GitHub → Vercel + Render
+
+| Часть | Где | Репозиторий |
+|-------|-----|-------------|
+| Mini App (React) | [Vercel](https://vercel.com) | `https://github.com/sss888-web/tg-app-as` |
+| Telegram-бот | [Render](https://render.com) Worker | тот же репозиторий, папка **`bot/`** |
+
+1. Код в **GitHub** — пушите изменения в `master`.
+2. **Vercel** — production фронта (у вас: `https://tg-app-as.vercel.app`): `npx vercel --prod` или импорт репозитория в [проект tg-app-as](https://vercel.com/mini-app-as/tg-app-as).
+3. **Render** — только бот (см. ниже). В `WEBAPP_URL` укажите **тот же HTTPS**, что на Vercel.
+
+---
+
 ## Подключение к боту (@uchugey_xarchy_bot)
 
 ### Шаг 1. Собрать и задеплоить приложение
@@ -37,7 +50,26 @@ npm run build
 
 Ссылка для пользователей: `https://t.me/uchugey_xarchy_bot/app` (имя `app` — как в BotFather, если другое — подставьте своё).
 
-### Шаг 3. Бот: кнопка и заявки
+### Шаг 3. Бот на Render (из GitHub)
+
+1. [Render Dashboard](https://dashboard.render.com) → **New** → **Blueprint** (или **Background Worker** вручную).
+2. Подключите репозиторий **`sss888-web/tg-app-as`** (ветка `master`).
+3. Если вручную: **Root Directory** = `bot`, **Runtime** = Python, **Start Command** = `python bot.py`, **Build** = `pip install -r requirements.txt`.
+4. **Environment** (секреты не коммитить):
+
+   | Переменная | Значение |
+   |------------|----------|
+   | `BOT_TOKEN` | токен от @BotFather |
+   | `WEBAPP_URL` | `https://tg-app-as.vercel.app` (без слэша в конце — бот сам добавит `/`) |
+   | `ADMIN_CHAT_ID` | ваш Telegram ID (заявки менеджеру) |
+
+5. Deploy. После старта бот сам выставит **Menu Button** и по `/start` покажет **кнопку снизу** «Открыть УЧУГЭЙ ЗАЙМ».
+
+В корне есть **`render.yaml`** — можно развернуть сервис одним Blueprint.
+
+Локально (для отладки) — тот же код в папке **`bot/`**:
+
+### Шаг 3 (локально). Бот: кнопка и заявки
 
 В репозитории есть простой бот в папке **`bot/`** (python-telegram-bot):
 

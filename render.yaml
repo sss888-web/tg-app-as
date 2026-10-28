@@ -1,0 +1,16 @@
+# Blueprint: бот (polling) из папки bot/
+# Mini App фронт — отдельно на Vercel (см. README).
+services:
+  - type: worker
+    name: uchugey-bot
+    runtime: python
+    rootDir: bot
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBAPP_URL
+        sync: false
+      - key: ADMIN_CHAT_ID
+        sync: false
