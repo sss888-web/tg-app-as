@@ -43,7 +43,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         [
             [
                 KeyboardButton(
-                    text="🟢 Открыть УЧУГЭЙ ЗАЙМ",
+                    text="🟢 Открыть УЧУГЭЙ СЕРВИС",
                     web_app=WebAppInfo(url=WEBAPP_URL),
                 )
             ]
@@ -51,7 +51,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         resize_keyboard=True,
     )
     await update.effective_message.reply_text(
-        "Подбор микрозаймов, кредитов, карт и автокредитов — в приложении ниже.",
+        "Добро пожаловать в УЧУГЭЙ СЕРВИС! Финансовый подбор для Якутии — кнопка ниже.",
         reply_markup=keyboard,
     )
 
@@ -77,7 +77,7 @@ async def web_app_data(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
 async def post_init(application: Application) -> None:
     await application.bot.set_chat_menu_button(
         menu_button=MenuButtonWebApp(
-            text="Учугей займ",
+            text="Учугей сервис",
             web_app=WebAppInfo(url=WEBAPP_URL),
         )
     )

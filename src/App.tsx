@@ -199,8 +199,7 @@ export default function App() {
         />
         <section className="app-panel section">
           <PanelHead
-            title="Популярное оформление"
-            description="Кредиты, карты и авто — так же онлайн, как микрозайм"
+            title="Кредиты, карты и авто — так же онлайн, как микрозайм"
             align="center"
           />
           <div className="product-grid">

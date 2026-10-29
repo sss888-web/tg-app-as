@@ -1,9 +1,11 @@
+const asset = (file: string) => `${import.meta.env.BASE_URL}${file}`;
+
 export const BRAND = {
-  name: "УЧУГЭЙ ЗАЙМ",
+  name: "УЧУГЭЙ СЕРВИС",
   subtitle: "Онлайн сервис · Якутия",
-  tagline: "Онлайн займ под 0% для всех",
-  logoSrc: "./brand/logo.jpg",
-  heroSrc: "./brand/hero.jpg",
+  tagline: "Финансовый подбор для Якутии",
+  logoSrc: asset("brand/logo.jpg"),
+  heroSrc: asset("brand/hero.jpg"),
 } as const;
 
 export const BENEFITS = [

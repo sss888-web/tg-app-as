@@ -1,4 +1,4 @@
-# Telegram Mini App — УЧУГЭЙ ЗАЙМ
+# Telegram Mini App — УЧУГЭЙ СЕРВИС
 
 Мини-приложение: **микрозаймы**, **кредиты**, **кредитные карты**, **автокредиты**. Ссылки `lig.su`.
 
@@ -22,7 +22,7 @@ npm run dev
 | Telegram-бот | [Render](https://render.com) Worker | тот же репозиторий, папка **`bot/`** |
 
 1. Код в **GitHub** — пушите изменения в `master`.
-2. **Vercel** — production фронта (у вас: `https://tg-app-as.vercel.app`): `npx vercel --prod` или импорт репозитория в [проект tg-app-as](https://vercel.com/mini-app-as/tg-app-as).
+2. **Vercel** — production фронта: **`https://uchugey-servis.vercel.app`** (также работает `https://tg-app-as.vercel.app`) — `npx vercel --prod` или [проект uchugey-servis](https://vercel.com/app-tg/uchugey-servis).
 3. **Render** — только бот (см. ниже). В `WEBAPP_URL` укажите **тот же HTTPS**, что на Vercel.
 
 ---
@@ -60,10 +60,10 @@ npm run build
    | Переменная | Значение |
    |------------|----------|
    | `BOT_TOKEN` | токен от @BotFather |
-   | `WEBAPP_URL` | `https://tg-app-as.vercel.app` (без слэша в конце — бот сам добавит `/`) |
+   | `WEBAPP_URL` | `https://uchugey-servis.vercel.app` (без слэша в конце — бот сам добавит `/`) |
    | `ADMIN_CHAT_ID` | ваш Telegram ID (заявки менеджеру) |
 
-5. Deploy. После старта бот сам выставит **Menu Button** и по `/start` покажет **кнопку снизу** «Открыть УЧУГЭЙ ЗАЙМ».
+5. Deploy. После старта бот сам выставит **Menu Button** и по `/start` покажет **кнопку снизу** «Открыть УЧУГЭЙ СЕРВИС».
 
 В корне есть **`render.yaml`** — можно развернуть сервис одним Blueprint.
 
@@ -84,8 +84,8 @@ python bot.py
 
 Бот:
 
-- ставит **кнопку меню** «Учугей займ»;
-- по `/start` — клавиша «Открыть УЧУГЭЙ ЗАЙМ»;
+- ставит **кнопку меню** «Учугей сервис»;
+- по `/start` — клавиша «Открыть УЧУГЭЙ СЕРВИС»;
 - принимает **`web_app_data`** из формы заявки в Mini App.
 
 Если у вас **уже работает свой бот** на другом коде — перенесите из `bot/bot.py` только:
